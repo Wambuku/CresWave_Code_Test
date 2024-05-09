@@ -45,11 +45,12 @@ $ANGULAR_CRESWAVE_CODE_TEST-theme: mat.define-light-theme(
 
 /* You can add global styles to this file, and also import other style files */
 
-html,
 body {
-  height: 100%;
+  font-family: 'Roboto', sans-serif;
+  background-color: #f4f4f4;
+  color: #333;
 }
-body {
-  margin: 0;
-  font-family: Roboto, "Helvetica Neue", sans-serif;
+
+.mat-elevation-z8 {
+  box-shadow: 0 6px 10px rgba(0,0,0,0.1);
 }

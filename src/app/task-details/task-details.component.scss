@@ -1,0 +1,23 @@
+.task-form {
+  display: flex;
+  flex-direction: column;
+  max-width: 600px;
+  margin: 40px auto;
+  background: white;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+
+  mat-form-field {
+    margin-bottom: 16px;
+  }
+
+  .mat-checkbox-layout {
+    display: flex;
+    align-items: center;
+  }
+}
+
+button {
+  align-self: start;
+}

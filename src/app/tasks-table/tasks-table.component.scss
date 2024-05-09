@@ -1,0 +1,28 @@
+.table-container {
+    padding: 20px;
+    background: white;
+    border-radius: 8px;
+    margin: 20px;
+  }
+  
+  mat-table {
+    width: 100%;
+    overflow: auto;
+  
+    th.mat-header-cell,
+    td.mat-cell {
+      padding: 16px;
+      text-align: left;
+      border-bottom: 1px solid #eee;
+    }
+  
+    th.mat-header-cell {
+      color: #666;
+      font-weight: bold;
+    }
+  }
+  
+  button {
+    margin-right: 8px;
+  }
+  
