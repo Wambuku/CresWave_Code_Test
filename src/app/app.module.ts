@@ -10,6 +10,7 @@ import { MatInputModule } from '@angular/material/input';
 import { MatIconModule } from '@angular/material/icon';
 import { MatTableModule } from '@angular/material/table';
 import { MatToolbarModule } from '@angular/material/toolbar';
+import { FormsModule } from '@angular/forms';
 
 import { AppComponent } from './app.component';
 import { TaskDetailsComponent } from './task-details/task-details.component';
@@ -27,6 +28,7 @@ import { TasksTableComponent } from './tasks-table/tasks-table.component';
     MatFormFieldModule,
     MatInputModule,
     MatIconModule,
+    FormsModule,
     MatTableModule,
     MatToolbarModule,
   ],

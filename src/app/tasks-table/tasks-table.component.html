@@ -2,7 +2,10 @@
   <!-- Task Title Column -->
   <ng-container matColumnDef="title">
     <mat-header-cell *matHeaderCellDef> Title </mat-header-cell>
-    <mat-cell *matCellDef="let task"> {{ task.title }} </mat-cell>
+    <mat-cell *matCellDef="let task">
+      <div *ngIf="editTaskId !== task.id">{{ task.title }}</div>
+      <input *ngIf="editTaskId === task.id" [(ngModel)]="task.title" (blur)="stopEdit()">
+    </mat-cell>
   </ng-container>
 
   <!-- Description Column -->
@@ -23,7 +26,8 @@
   <ng-container matColumnDef="actions">
     <mat-header-cell *matHeaderCellDef> Actions </mat-header-cell>
     <mat-cell *matCellDef="let task">
-      <button mat-icon-button color="primary" (click)="editTask(task.id)">
+        <button mat-button [routerLink]="['/tasks', task.id]">View Details</button>
+      <button mat-icon-button color="primary" (click)="startEdit(task.id)">
         <mat-icon>edit</mat-icon>
       </button>
       <button mat-icon-button color="warn" (click)="deleteTask(task.id)">

@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { TaskService } from '../task.service';
-import { Task } from '../models/task'; // Assuming you have a Task model
+import { Router } from '@angular/router';
+import { TaskService } from '../task.service'; // Adjust the path as necessary
+import { Task } from '../models/task'; // Adjust the path for Task model import as necessary
 
 @Component({
   selector: 'app-tasks-table',
@@ -9,9 +10,13 @@ import { Task } from '../models/task'; // Assuming you have a Task model
 })
 export class TasksTableComponent implements OnInit {
   tasks: Task[] = [];
-  displayedColumns: string[] = ['title', 'description', 'status', 'actions'];
+  displayedColumns: string[] = ['column1', 'column2', 'column3'];
+  editTaskId: number | null = null;  // Property to track the task currently being edited
 
-  constructor(private taskService: TaskService) {}
+  constructor(
+    private taskService: TaskService,
+    private router: Router
+  ) {}
 
   ngOnInit() {
     this.taskService.getTasks().subscribe((tasks) => {
@@ -20,13 +25,28 @@ export class TasksTableComponent implements OnInit {
   }
 
   editTask(id: number) {
-    // Implement navigation or logic to edit a task
-    console.log('Editing task:', id);
+    // Navigate to the edit page
+    this.router.navigate(['/tasks', id, 'edit']);  // Make sure the route is defined in your routing module
+  }
+
+  startEdit(taskId: number): void {
+    this.editTaskId = taskId;
+  }
+
+  stopEdit(): void {
+    if (this.editTaskId !== null) {
+      const task = this.tasks.find(t => t.id === this.editTaskId);
+      if (task) {
+        this.taskService.updateTask(task).subscribe(() => {
+          this.editTaskId = null;
+          // Handle response or errors here, maybe refresh the list or show a notification
+        });
+      }
+    }
   }
 
   deleteTask(id: number) {
     this.taskService.deleteTask(id).subscribe(() => {
-      // Update the tasks list after deleting
       this.tasks = this.tasks.filter((task) => task.id !== id);
     });
   }
