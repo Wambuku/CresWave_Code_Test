@@ -1,0 +1,19 @@
+mat-toolbar {
+    justify-content: space-between;
+  }
+  
+  .example-spacer {
+    flex: 1 1 auto;
+  }
+  
+  .content {
+    margin-top: 20px;
+    padding: 20px;
+    min-height: calc(100vh - 128px);  // Adjust based on your actual toolbar and footer height
+  }
+  
+  .footer {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+  }

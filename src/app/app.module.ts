@@ -9,17 +9,14 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { MatIconModule } from '@angular/material/icon';
 import { MatTableModule } from '@angular/material/table';
+import { MatToolbarModule } from '@angular/material/toolbar';
 
 import { AppComponent } from './app.component';
 import { TaskDetailsComponent } from './task-details/task-details.component';
 import { TasksTableComponent } from './tasks-table/tasks-table.component';
 
 @NgModule({
-  declarations: [
-    AppComponent,
-    TaskDetailsComponent,
-    TasksTableComponent
-  ],
+  declarations: [AppComponent, TaskDetailsComponent, TasksTableComponent],
   imports: [
     RouterModule.forRoot([]),
     BrowserModule,
@@ -30,9 +27,10 @@ import { TasksTableComponent } from './tasks-table/tasks-table.component';
     MatFormFieldModule,
     MatInputModule,
     MatIconModule,
-    MatTableModule
+    MatTableModule,
+    MatToolbarModule,
   ],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}

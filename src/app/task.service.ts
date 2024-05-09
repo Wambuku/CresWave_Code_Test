@@ -1,13 +1,13 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
-import { Task } from './models/task';
+import { Task } from './models/task';  // Adjust path as necessary
 
 @Injectable({
-  providedIn: 'root',
+  providedIn: 'root'
 })
 export class TaskService {
-  private apiUrl = 'http://localhost:3000/tasks'; // URL to web API
+  private apiUrl = 'http://localhost:3000/tasks';  // URL to your API or JSON-server
 
   constructor(private http: HttpClient) {}
 
