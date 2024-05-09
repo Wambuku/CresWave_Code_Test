@@ -1,33 +1,38 @@
 import { NgModule } from '@angular/core';
+import { RouterModule } from '@angular/router';
+import { BrowserModule } from '@angular/platform-browser';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ReactiveFormsModule } from '@angular/forms';
-import { MatTableModule } from '@angular/material/table';
+import { MatButtonModule } from '@angular/material/button';
+import { MatCheckboxModule } from '@angular/material/checkbox';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
-import { MatCheckboxModule } from '@angular/material/checkbox';
-import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
-import { BrowserModule } from '@angular/platform-browser';
-import { AppRoutingModule } from './app-routing.module';
+import { MatTableModule } from '@angular/material/table';
+
 import { AppComponent } from './app.component';
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { TasksTableComponent } from './tasks-table/tasks-table.component';
 import { TaskDetailsComponent } from './task-details/task-details.component';
+import { TasksTableComponent } from './tasks-table/tasks-table.component';
 
 @NgModule({
-  declarations: [AppComponent, TasksTableComponent, TaskDetailsComponent],
+  declarations: [
+    AppComponent,
+    TaskDetailsComponent,
+    TasksTableComponent
+  ],
   imports: [
+    RouterModule.forRoot([]),
+    BrowserModule,
+    BrowserAnimationsModule,
     ReactiveFormsModule,
-    MatTableModule,
+    MatButtonModule,
+    MatCheckboxModule,
     MatFormFieldModule,
     MatInputModule,
-    MatCheckboxModule,
-    MatButtonModule,
     MatIconModule,
-    BrowserModule,
-    AppRoutingModule,
-    BrowserAnimationsModule,
+    MatTableModule
   ],
   providers: [],
-  bootstrap: [AppComponent],
+  bootstrap: [AppComponent]
 })
-export class AppModule {}
+export class AppModule { }

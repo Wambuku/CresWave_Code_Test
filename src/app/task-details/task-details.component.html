@@ -1,16 +1,15 @@
 <form [formGroup]="taskForm" class="flex flex-col gap-4">
-    <mat-form-field appearance="fill">
-      <mat-label>Title</mat-label>
-      <input matInput formControlName="title">
-    </mat-form-field>
-  
-    <mat-form-field appearance="fill">
-      <mat-label>Description</mat-label>
-      <textarea matInput formControlName="description"></textarea>
-    </mat-form-field>
-  
-    <mat-checkbox formControlName="status">Complete</mat-checkbox>
-  
-    <button mat-raised-button color="primary" (click)="saveTask()">Save Task</button>
-  </form>
-  
+  <mat-form-field appearance="fill">
+    <mat-label>Title</mat-label>
+    <input matInput formControlName="title" placeholder="Enter task title">
+  </mat-form-field>
+
+  <mat-form-field appearance="fill">
+    <mat-label>Description</mat-label>
+    <textarea matInput formControlName="description" placeholder="Enter task description"></textarea>
+  </mat-form-field>
+
+  <mat-checkbox formControlName="status">Complete</mat-checkbox>
+
+  <button mat-raised-button color="primary" (click)="saveTask()">Save Task</button>
+</form>

@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { TaskService } from '../task.service';
 import { ActivatedRoute, Router } from '@angular/router';
+import { Task } from '../models/task';
 
 @Component({
   selector: 'app-task-details',
@@ -27,7 +28,7 @@ export class TaskDetailsComponent implements OnInit {
   ngOnInit() {
     const taskId = this.route.snapshot.paramMap.get('id');
     if (taskId) {
-      this.taskService.getTask(+taskId).subscribe(task => {
+      this.taskService.getTask(+taskId).subscribe((task: Task) => {
         this.taskForm.patchValue(task);
       });
     }
@@ -35,8 +36,8 @@ export class TaskDetailsComponent implements OnInit {
 
   saveTask() {
     const taskData = this.taskForm.value;
+    const taskId = this.route.snapshot.paramMap.get('id');
     if (this.taskForm.valid) {
-      const taskId = this.route.snapshot.paramMap.get('id');
       if (taskId) {
         this.taskService.updateTask({...taskData, id: +taskId}).subscribe(() => {
           this.router.navigate(['/tasks']);
@@ -49,26 +50,3 @@ export class TaskDetailsComponent implements OnInit {
     }
   }
 }
-
-
-// import { ComponentFixture, TestBed } from '@angular/core/testing';
-
-// import { TaskDetailsComponent } from './task-details.component';
-
-// describe('TaskDetailsComponent', () => {
-//   let component: TaskDetailsComponent;
-//   let fixture: ComponentFixture<TaskDetailsComponent>;
-
-//   beforeEach(() => {
-//     TestBed.configureTestingModule({
-//       declarations: [TaskDetailsComponent]
-//     });
-//     fixture = TestBed.createComponent(TaskDetailsComponent);
-//     component = fixture.componentInstance;
-//     fixture.detectChanges();
-//   });
-
-//   it('should create', () => {
-//     expect(component).toBeTruthy();
-//   });
-// });
