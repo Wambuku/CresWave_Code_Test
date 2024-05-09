@@ -5,7 +5,7 @@ import { TaskDetailsComponent } from './task-details/task-details.component';
 // import { AboutComponent } from './about/about.component';
 
 const routes: Routes = [
-  { path: '', redirectTo: '/tasks', pathMatch: 'full' },
+  { path: '', redirectTo: '/', pathMatch: 'full' },
   { path: 'tasks', component: TasksTableComponent },
   { path: 'tasks/:id/edit', component: TaskDetailsComponent }
 
@@ -14,6 +14,6 @@ const routes: Routes = [
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
-  exports: [RouterModule],
+  exports: [RouterModule]
 })
 export class AppRoutingModule {}

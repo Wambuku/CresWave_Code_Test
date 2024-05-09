@@ -6,25 +6,23 @@
 <!-- * * * * * * * * * Delete the template below * * * * * * * * * * -->
 <!-- * * * * * * * to get started with your project! * * * * * * * * -->
 <!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * -->
-<!-- Main navigation bar using Angular Material -->
+<!-- Main navigation bar  -->
 <mat-toolbar color="primary">
-  <span>Task Manager</span>
+  <a mat-button [routerLink]="['/']">Task Manager</a>
   <span class="example-spacer"></span>
   <button mat-button [routerLink]="['/tasks']">Tasks</button>
   <button mat-button [routerLink]="['/about']">About</button>
 </mat-toolbar>
 
-<!-- Main content area where router-outlet will display the routed components -->
+<!-- Main content area -->
 <div class="content">
   <router-outlet></router-outlet>
 </div>
 
-<!-- Footer using Angular Material -->
+<!-- Footer  -->
 <mat-toolbar color="primary" class="mat-elevation-z6 footer">
-  © 2024 Your Company Name. All rights reserved.
+  © {{ currentYear }} Your Company Name. All rights reserved.
 </mat-toolbar>
-
-  
 
 <!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * -->
 <!-- * * * * * * * * * * * The content above * * * * * * * * * * * -->
@@ -33,5 +31,3 @@
 <!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * -->
 <!-- * * * * * * * * * * End of Placeholder * * * * * * * * * * * -->
 <!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * -->
-
-

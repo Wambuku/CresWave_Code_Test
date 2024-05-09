@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { TaskService } from '../task.service'; // Adjust the path as necessary
-import { Task } from '../models/task'; // Adjust the path for Task model import as necessary
+import { TaskService } from '../task.service'; 
+import { Task } from '../models/task'; 
 
 @Component({
   selector: 'app-tasks-table',
@@ -10,8 +10,8 @@ import { Task } from '../models/task'; // Adjust the path for Task model import 
 })
 export class TasksTableComponent implements OnInit {
   tasks: Task[] = [];
-  displayedColumns: string[] = ['column1', 'column2', 'column3'];
-  editTaskId: number | null = null;  // Property to track the task currently being edited
+  displayedColumns: string[] = ['title', 'description', 'status', 'actions'];
+  editTaskId: number | null = null;  
 
   constructor(
     private taskService: TaskService,
@@ -26,7 +26,7 @@ export class TasksTableComponent implements OnInit {
 
   editTask(id: number) {
     // Navigate to the edit page
-    this.router.navigate(['/tasks', id, 'edit']);  // Make sure the route is defined in your routing module
+    this.router.navigate(['/tasks', id, 'edit']);  
   }
 
   startEdit(taskId: number): void {
@@ -35,11 +35,11 @@ export class TasksTableComponent implements OnInit {
 
   stopEdit(): void {
     if (this.editTaskId !== null) {
-      const task = this.tasks.find(t => t.id === this.editTaskId);
+      const task = this.tasks.find((t) => t.id === this.editTaskId);
       if (task) {
         this.taskService.updateTask(task).subscribe(() => {
           this.editTaskId = null;
-          // Handle response or errors here, maybe refresh the list or show a notification
+         
         });
       }
     }
